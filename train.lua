@@ -77,6 +77,7 @@ local loader = CharSplitLMMinibatchLoader.create(opt.data_dir, opt.batch_size, o
 local vocab_size = loader.vocab_size  -- the number of distinct characters
 print('vocab size: ' .. vocab_size)
 -- make sure output directory exists
+opt.checkpoint_dir = path.join(opt.data_dir, opt.checkpoint_dir)
 if not path.exists(opt.checkpoint_dir) then lfs.mkdir(opt.checkpoint_dir) end
 
 -- define the model: prototypes for one timestep, then clone them in time
